@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2023 at 12:14 PM
+-- Generation Time: Aug 09, 2023 at 07:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -24,6 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `client`
+--
+
+CREATE TABLE `client` (
+  `id` int(30) NOT NULL,
+  `name` text NOT NULL,
+  `image` text NOT NULL,
+  `featured` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`id`, `name`, `image`, `featured`) VALUES
+(1, 'News Network 18', 'uploads/1690309920_2.png', 1),
+(2, 'Mackintosh Burn Limited', 'uploads/1690311660_3.png', 1),
+(3, 'Zee Bangla', 'uploads/1690311720_4.png', 1),
+(4, 'Sabyaa Saachi', 'uploads/1690311780_1.png', 1),
+(5, 'Govt. of West Bengal', 'uploads/1690311780_5.png', 1),
+(6, 'Paridarshak', 'uploads/1690311840_6.png', 1),
+(7, 'Bansal Cement', 'uploads/1690311840_7.png', 1),
+(8, 'Kolkata Pourosanstha', 'uploads/1690311900_8.png', 1),
+(9, 'Rashmi Group', 'uploads/1690311900_9.png', 1),
+(10, 'CNCI', 'uploads/1690327740_10.png', 1),
+(11, 'Spacio', 'uploads/1690311960_11.png', 1),
+(12, 'CIA', 'uploads/1690311960_12.png', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contacts`
 --
 
@@ -37,40 +68,14 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`meta_field`, `meta_value`) VALUES
-('mobile', '[+91] 86975 00538'),
-('whatsapp', '918697500538'),
-('email', 'desgn.dd@gmail.com'),
-('facebook', 'https://facebook.com/profile'),
+('mobile', '[+91] 12345 67890'),
+('whatsapp', '911234567890'),
+('email', 'addictionmedia@gmail.com'),
+('facebook', 'https://facebook.com'),
 ('twitter', ''),
-('linkin', 'https://www.linkedin.com/in/desgndd/'),
-('instagram', 'https://www.instagram.com/desgn.dd/'),
-('behance', 'https://www.behance.net/theddey/'),
-('resume', 'https://drive.google.com/drive/folders/1K78x5z_eDCnm6JO9KTiga9FAaf8PYSgD?usp=sharing');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `education`
---
-
-CREATE TABLE `education` (
-  `id` int(30) NOT NULL,
-  `school` text DEFAULT NULL,
-  `degree` text DEFAULT NULL,
-  `month` varchar(50) NOT NULL,
-  `year` int(10) NOT NULL,
-  `description` text DEFAULT NULL,
-  `order_by` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `education`
---
-
-INSERT INTO `education` (`id`, `school`, `degree`, `month`, `year`, `description`, `order_by`) VALUES
-(1, 'Sample School', 'Sample', 'April', 2017, '<p><span style=\"color: rgb(0, 0, 0); font-family: \"Open Sans\", Arial, sans-serif; text-align: justify;\"><span style=\"font-weight: bolder;\">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Quisque malesuada, odio ullamcorper ornare pellentesque, orci quam consectetur urna, sed fringilla nunc lorem lacinia quam. Ut pellentesque luctus mi vitae vestibulum. Vivamus scelerisque congue turpis, vel rutrum felis ultricies ac. Duis vitae ligula pellentesque erat fermentum mattis. Ut fringilla blandit est sit amet malesuada. Mauris ultrices interdum tellus nec tincidunt. Nulla malesuada sem lorem. Pellentesque blandit augue eu mi iaculis faucibus. Vestibulum in nisl at turpis bibendum efficitur. Integer dapibus volutpat nisl eget lobortis. Nam sit amet scelerisque felis. Praesent euismod quis eros et facilisis. Vivamus vitae nibh vitae nunc dapibus placerat. Duis ac accumsan enim, at semper tortor. Nunc aliquet augue eu diam semper sodales. Maecenas pulvinar dignissim ex, vel lacinia massa consectetur ut.</span></p><p><br></p>', 0),
-(2, 'School 2', 'Degree 2', 'March', 2018, '<p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Sed dui diam, aliquet vel porttitor non, placerat vitae ligula. Donec ut neque at massa accumsan volutpat vitae vitae augue. Morbi dapibus finibus nulla, vitae ultricies lectus iaculis vitae. Morbi maximus vel justo ut consequat. Fusce ut ex feugiat, pulvinar velit sit amet, cursus lorem. Aliquam ullamcorper tempor commodo. Etiam faucibus diam sed arcu vehicula, blandit accumsan nulla placerat.</span><br></p>', 0),
-(3, 'Sample School 33', 'Degree 3', 'April', 2019, '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;&quot;&gt;Etiam viverra sem sit amet dapibus imperdiet. Integer vitae eros ex. Cras ac nunc eleifend, malesuada ligula iaculis, posuere massa. Donec congue tincidunt vehicula. Pellentesque in sem est. Cras venenatis eros eget ipsum blandit, et vulputate ipsum rhoncus. Donec euismod non lacus eu venenatis. Nam magna velit, fringilla sed commodo non, accumsan at elit. Suspendisse sagittis purus ex, sit amet mollis sem vehicula vitae. Vivamus consectetur faucibus libero, efficitur feugiat nibh tempus sed.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', 0);
+('linkin', ''),
+('instagram', 'https://www.instagram.com'),
+('behance', '');
 
 -- --------------------------------------------------------
 
@@ -81,21 +86,77 @@ INSERT INTO `education` (`id`, `school`, `degree`, `month`, `year`, `description
 CREATE TABLE `project` (
   `id` int(30) NOT NULL,
   `name` text DEFAULT NULL,
-  `category` varchar(20) NOT NULL,
+  `service` int(30) DEFAULT NULL,
   `summary` text DEFAULT NULL,
-  `attachment_type` text DEFAULT NULL,
-  `attachment_link` text DEFAULT NULL,
-  `year` varchar(11) NOT NULL
+  `attachment` text DEFAULT NULL,
+  `date` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id`, `name`, `category`, `summary`, `attachment_type`, `attachment_link`, `year`) VALUES
-(1, 'NabaSpec', 'Website Design', 'No-Code Dashboard Creation Platform', 'Website', 'https://www.nabaspec.com', '2023'),
-(2, 'House of AC', 'Graphic Design', 'Luxury Furniture Company', 'Figma File', '', '2022'),
-(3, 'Addiction Media & Print', 'Website Design', 'Design &amp; Advertising Agency', 'Figma File', '', '2023');
+INSERT INTO `project` (`id`, `name`, `service`, `summary`, `attachment`, `date`) VALUES
+(5, 'Moment Perfume', 1, 'test', 'uploads/1690327920_H-3 1.png', '28/02/2023'),
+(6, 'Moment Deodrent', 2, 'test', 'uploads/1690407300_H-3 1.png', '02/03/2023'),
+(7, 'Moment Deodrent', 2, 'test', 'uploads/1690388040_H-1 1.png', '01/03/2023');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recent_work`
+--
+
+CREATE TABLE `recent_work` (
+  `id` int(30) NOT NULL,
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `date` varchar(11) NOT NULL,
+  `attachment` text NOT NULL,
+  `thumbnail` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `recent_work`
+--
+
+INSERT INTO `recent_work` (`id`, `name`, `description`, `date`, `attachment`, `thumbnail`) VALUES
+(1, 'BOMKESH PROMO', '25 sec of Bomkesh Bakshi promosion.', '28/02/2023', 'uploads/1690928220_BOMKESH_PROMO1_25secs.mp4', 'uploads/1690932660_Capture.PNG'),
+(2, 'CESE', 'cese', '01/03/2023', 'uploads/1690930380_CESC.mp4', 'uploads/1690932780_Capture.PNG'),
+(3, 'SAREGAMA PROMO 52SEC ASCHEY', '14.05.14 SAREGAMA PROMO 52SEC ASCHEY REVISED-MPEG-4 -1-1', '01/03/2023', 'uploads/1690930980_14.05.14 SAREGAMA PROMO 52SEC ASCHEY REVISED-MPEG-4 -1-1.mp4', 'uploads/1690932840_Capture.PNG'),
+(4, 'Rashmi Cement', 'Rashmi Cement', '04/03/2023', 'uploads/1690930500_CA037955  Rashmi Cement 10sec.mov', 'uploads/1690932900_Capture.PNG'),
+(5, 'Rashmi TMT', 'Rashmi TMT', '04/03/2023', 'uploads/1690930560_CA043366  RASHMI TMT  10  BEN.mov', 'uploads/1690932960_Capture.PNG'),
+(6, 'Cycle Agarbathi', 'Cycle Agarbathi', '28/02/2023', 'uploads/1690930560_Cycle Agarbathi.mp4', 'uploads/1690933020_Capture.PNG'),
+(7, 'Test Image', 'test', '04/03/2023', '', 'uploads/1690964880_Byakuya   Kuchiki Byakuya Wallpaper 13423882.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service`
+--
+
+CREATE TABLE `service` (
+  `id` int(30) NOT NULL,
+  `name` text NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`id`, `name`, `image`) VALUES
+(1, 'Packaging Design', 'uploads/1690230000_packaging-design.svg'),
+(2, 'Advertisement', 'uploads/1690229880_advertisement.svg'),
+(3, 'Events', 'uploads/1690230240_events.svg'),
+(4, 'Google Ads', 'uploads/1690230420_google-ads.svg'),
+(5, 'Films & Video', 'uploads/1690230660_films-and-videos.svg'),
+(6, 'Technology', 'uploads/1690230660_technology.svg'),
+(7, 'Content Writing', 'uploads/1690230720_content-writing.svg'),
+(8, 'Promotions', 'uploads/1690270740_promotions.svg'),
+(9, 'Digital Events', 'uploads/1690270740_digital-events.svg'),
+(10, 'Designing', 'uploads/1690270800_designing.svg'),
+(14, 'All Types of Printing', 'uploads/1690309740_printing.svg');
 
 -- --------------------------------------------------------
 
@@ -114,13 +175,12 @@ CREATE TABLE `system_info` (
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'desgn.dd'),
-(2, 'address', 'Philippines'),
+(1, 'name', 'Addiction Media & Print'),
 (3, 'contact', '+1234567890'),
 (4, 'email', 'info@sample.com'),
-(6, 'short_name', 'd3'),
-(9, 'logo', 'uploads/1689447240_design.dd.png'),
-(11, 'welcome_message', 'I am a creative designer who has expertise in multi-disciplinary parts of design.'),
+(6, 'short_name', 'AMP'),
+(9, 'logo', 'uploads/1690230120_favicon.png'),
+(11, 'welcome_message', 'A multidisciplinary creative studio, based out of Kolkata, specializing in advertising and branding.'),
 (13, 'title', 'Welcome to');
 
 -- --------------------------------------------------------
@@ -146,45 +206,35 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `date_added`, `date_updated`) VALUES
-(1, 'Debarpan', 'Dey', 'bvibemurvoumarbvhmvme974g7gat', '34e6808856fcaf524d6a4386059d8cec', 'uploads/1689447240_design.dd.png', NULL, '2021-01-20 14:02:37', '2023-07-16 00:24:47');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `work`
---
-
-CREATE TABLE `work` (
-  `id` int(30) NOT NULL,
-  `company` text DEFAULT NULL,
-  `position` text DEFAULT NULL,
-  `started` varchar(250) NOT NULL,
-  `ended` varchar(250) NOT NULL,
-  `description` text DEFAULT NULL,
-  `order_by` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `work`
---
-
-INSERT INTO `work` (`id`, `company`, `position`, `started`, `ended`, `description`, `order_by`) VALUES
-(1, 'Company 101', 'Web Developer', 'March_2014', 'July_2017', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; text-align: justify;&quot;&gt;Curabitur venenatis tortor semper finibus congue. Praesent eget tellus ac libero euismod pulvinar sed tincidunt odio. Cras sed viverra orci. Suspendisse cursus faucibus augue, sed feugiat ante commodo vitae. Praesent ut tempus neque. Donec ac ultricies orci, sed egestas nunc. Nunc lacinia, tortor sit amet elementum cursus, ante erat dictum lorem, ut feugiat sapien mi quis nulla. Nunc diam erat, lobortis nec posuere in, tempus non dui. Phasellus eleifend est at neque luctus, in placerat dolor pretium. Integer sagittis lacinia placerat. Nulla in dolor dapibus purus pharetra consectetur ac et tortor. Morbi blandit viverra ipsum, at lobortis odio lacinia tempus. Maecenas ac lobortis nisi. Suspendisse potenti.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', 0);
+(1, 'Rahul', 'Roy', 'bvibemurvoumarbvhmvme974g7gat', '34e6808856fcaf524d6a4386059d8cec', 'uploads/1690229340_favicon.png', NULL, '2021-01-20 14:02:37', '2023-07-25 01:39:57');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `education`
+-- Indexes for table `client`
 --
-ALTER TABLE `education`
+ALTER TABLE `client`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project`
 --
 ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service` (`service`);
+
+--
+-- Indexes for table `recent_work`
+--
+ALTER TABLE `recent_work`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -200,26 +250,32 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `work`
---
-ALTER TABLE `work`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `education`
+-- AUTO_INCREMENT for table `client`
 --
-ALTER TABLE `education`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `client`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `recent_work`
+--
+ALTER TABLE `recent_work`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `system_info`
@@ -234,10 +290,14 @@ ALTER TABLE `users`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `work`
+-- Constraints for dumped tables
 --
-ALTER TABLE `work`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for table `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`service`) REFERENCES `service` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
