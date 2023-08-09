@@ -117,7 +117,7 @@
          </div>
       </div>
 
-		<div id="our-services-mobile" style="display: none;">
+		<div id="our-services-mobile" style="display: none; padding-top: 60px; margin-top: -60px;">
 	      <?php require('inc/siteServices.php') ?>
 			<script>
 				window.onload = function () {
