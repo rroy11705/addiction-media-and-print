@@ -589,8 +589,16 @@
       border-radius: none;
    }
 
+   footer .lg-show {
+      display: none;
+   }
+   footer .sm-show {
+      display: block;
+   }
+
    footer .footer-top {
       flex-direction: row;
+      align-items: center;
    }
 
    footer .footer-top svg {

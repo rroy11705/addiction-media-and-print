@@ -1,6 +1,6 @@
 <nav id="nav-wrap">
     <div class="logo-wrap">
-        <a class="logo" href="#" title="Hide navigation">
+        <a class="logo" href="index.php" title="Hide navigation">
         <img id="lg-logo" src="<?php echo base_url ?>/profile_asset/images/logo.png" alt="ADDICTION" />   
         <img id="sm-logo" src="<?php echo base_url ?>/profile_asset/images/logo-inverse.png" alt="ADDICTION" />   
         </a>
@@ -21,7 +21,7 @@
 
     <ul id="mobile-nav" class="nav">
         <li><a href="index.php#home">home</a></li>
-        <li><a href="index.php#our-services">our services</a></li>
+        <li><a href="index.php#our-services-mobile">our services</a></li>
         <li><a href="works.php#recent-works">recent works</a></li>
         <li><a href="works.php#awards">awards</a></li>
         <li style="padding-top: 20px"><a href="gallery.php">portfolio</a></li>

@@ -1315,6 +1315,13 @@ footer {
    border-radius: 28.8px
 }
 
+footer .lg-show {
+   display: block;
+}
+footer .sm-show {
+   display: none;
+}
+
 footer .footer-top {
    display: flex;
    flex-direction: row;
