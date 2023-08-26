@@ -79,7 +79,7 @@ if(isset($_GET['id'])){
 						<div class="form-group">
 							<label for="customFile" class="control-label">Attachment</label>
 							<div class="custom-file">
-								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))" <?php echo isset($id) ? 'required' : '' ?>>
+								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))" <?php echo isset($id) ? '' : 'required' ?>>
 								<label class="custom-file-label" for="customFile">Choose file</label>
 							</div>
 						</div>
