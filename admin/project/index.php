@@ -31,6 +31,7 @@
 						<th class="text-center">#</th>
 						<th>Attachment</th>
 						<th>Project Name</th>
+						<th>Client</th>
 						<th>Service</th>
 						<th>Date</th>
 						<th>Action</th>
@@ -39,7 +40,7 @@
 				<tbody>
 					<?php
 					$i = 1;
-					$qry = $conn->query("SELECT p.`id` as `id`, p.`name` as `name`, s.`name` as `service`, p.`date` as `date`, p.`attachment` as `attachment` FROM `project` as p JOIN `service` as s WHERE p.`service` = s.`id`");
+					$qry = $conn->query("SELECT p.`id` as `id`, p.`name` as `name`, c.`name` as `client`, s.`name` as `service`, p.`date` as `date`, p.`attachment` as `attachment` FROM `project` as p INNER JOIN `service` as s ON p.`service` = s.`id` LEFT JOIN `client` as c ON p.`client` = c.id");
 					while($row= $qry->fetch_assoc()):
 					?>
 					<tr>
@@ -48,6 +49,7 @@
 							<img src="<?php echo validate_image($row['attachment']) ?>" alt="" id="cimg" style="max-height: 100px; width: auto" class="img-fluid img-thumbnail" />
 						</td>
 						<td><b class="truncate-1"><?php echo ucwords($row['name']) ?></b></td>
+						<td><b class="truncate-1"><?php echo ucwords($row['client']) ?></b></td>
 						<td><small class="truncate-1"><?php echo ucwords($row['service']) ?></small></td>
 						<td><small class="truncate-1"><?php echo $row['date'] ?></small></td>
 						<td class="text-center">

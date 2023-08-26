@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="service" class="control-label">Service</label>
-							<select name="service" id="service" cols="30" rows="1" class="form-control">
+							<select name="service" id="service" cols="30" rows="1" class="form-control" required>
 								<option value="" disabled selected hidden>Choose an option</option>
 								<?php 
 									$p_qry = $conn->query("SELECT * FROM `service`");
@@ -54,7 +54,7 @@ if(isset($_GET['id'])){
 						<div class="form-group">
 							<label for="client" class="control-label">Client</label>
 							<select name="client" id="client" cols="30" rows="1" class="form-control">
-								<option value="" disabled selected hidden>Choose an option</option>
+								<option value="0" selected>Choose an option</option>
 								<?php 
 									$p_qry = $conn->query("SELECT `id`, `name` FROM `client`");
 									while($row = $p_qry->fetch_assoc()):
@@ -79,7 +79,7 @@ if(isset($_GET['id'])){
 						<div class="form-group">
 							<label for="customFile" class="control-label">Attachment</label>
 							<div class="custom-file">
-								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">
+								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))" required>
 								<label class="custom-file-label" for="customFile">Choose file</label>
 							</div>
 						</div>

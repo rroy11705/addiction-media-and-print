@@ -4,8 +4,12 @@
 <?php require_once('inc/header.php') ?>
 <?php 
     $service = 0;
-    if(isset($_GET['id'])) {
-        $service = $_GET['id'];
+    if(isset($_GET['service'])) {
+        $service = $_GET['service'];
+    }
+    $client = NULL;
+    if(isset($_GET['client'])) {
+        $client = $_GET['client'];
     }
 ?>
 <body>
@@ -29,12 +33,12 @@
 
         <div class="banner">
             <div class="see-more">
-                <a href="index.php">
+                <a href="<?php echo "gallery.php?id=" . $_GET['service'] ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="43" height="19" viewBox="0 0 43 19" fill="none">
                         <path d="M42.1875 9.45508H0.882739" stroke="white" stroke-width="1.34512"/>
                         <path d="M9.76977 18.3357L0.884357 9.45028M9.76977 0.565349L0.884358 9.45076" stroke="white" stroke-width="1.34512"/>
                     </svg>
-                    <span>Back to Main Page</span>
+                    <span>Back</span>
                 </a>
             </div>
             <h2>GALLERY</h2>
@@ -153,42 +157,55 @@
     <section id="gallery-content">
         <div class="content-wrapper zoom-gallery">
             <?php 
-                $client_query = 
-                    "SELECT
-                        s.id AS service_id,
-                        s.name As service_name,
-                        c.id AS client_id,
-                        c.name AS client_name,
-                        p.attachment AS attachment
-                    FROM
-                        (SELECT
-                            p.client as client_id,
-                            p.service as service_id,
-                            p.id,
-                            p.attachment,
-                            ROW_NUMBER() OVER(PARTITION BY p.client ORDER BY p.id) AS row_num
-                        FROM
-                            project p
-                        ) As p
-                    LEFT JOIN client as c 
-                    ON c.id = p.client_id OR c.id = NULL AND p.row_num = 1
-                    INNER JOIN service s ON p.service_id = s.id AND p.row_num = 1";
-                $client_query_end = "ORDER BY case when p.client_id = 0 then 1 else 0 end, client_name ASC";
-
-                if(isset($_GET['id']) && $_GET['id'] > 0)
-                    $qry = $conn->query($client_query . " WHERE service_id = '{$_GET['id']}' " . $client_query_end);
-                else
-                    $qry = $conn->query($client_query . " " . $client_query_end);
+                if(isset($_GET['service']) && $_GET['client'] > 0) {
+                    if (isset($_GET['service']) && $_GET['service'] > 0)
+                        $qry = $conn->query("SELECT * from project WHERE `service` = '{$_GET['service']}' AND `client` = '{$_GET['client']}';");
+                    else
+                        $qry = $conn->query("SELECT * from project WHERE `client` = '{$_GET['client']}';");
+                }
+                else {
+                    if (isset($_GET['service']) && $_GET['service'] > 0) 
+                        $qry = $conn->query("SELECT * from project WHERE `service` = '{$_GET['service']}' AND `client` = '{$_GET['client']}';");
+                    else
+                        $qry = $conn->query("SELECT * from project WHERE `client` = '0';");
+                }
         
                 while($row = $qry->fetch_assoc()):
             ?>
-                <a class="item" href="gallery-details.php?<?php echo $_GET['id'] ? 'service=' . $_GET['id'] : 'service=0' ?>&<?php echo $row['client_id'] ? 'client=' . $row['client_id'] : 'client=0' ?>">
-                    <img src="<?php echo $row['attachment'] ? $row['attachment'] : '#' ?>" alt="<?php echo $row['client_name'] ? $row['client_name'] : '#' ?>" />
-                    <div class="overlay"><?php echo $row['client_name'] ? $row['client_name'] : 'Others' ?></div>
+                <a class="item" href="<?php echo $row['attachment'] ? $row['attachment'] : '#' ?>">
+                    <img src="<?php echo $row['attachment'] ? $row['attachment'] : '#' ?>" alt="<?php echo $row['name'] ? $row['name'] : '#' ?>" />
                 </a>
             <?php endwhile; ?>
         </div>
     </section>
     <?php require_once('inc/footer.php') ?>
+    <script>
+        $(document).ready(function() {
+            $('.zoom-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                mainClass: 'mfp-with-zoom mfp-img-mobile',
+                image: {
+                    verticalFit: true,
+                    titleSrc: function(item) {
+                        return item.el.attr('title');
+                    }
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // don't foget to change the duration also in CSS
+                    opener: function(element) {
+                        return element.find('img');
+                    }
+                }
+
+            });
+        });
+    </script>
 </body>
 </html>
