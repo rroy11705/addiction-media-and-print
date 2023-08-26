@@ -28,7 +28,7 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Attachment URL</th>
+						<th>Attachment</th>
 						<th>Name</th>
 						<th>Date</th>
 						<th>Action</th>

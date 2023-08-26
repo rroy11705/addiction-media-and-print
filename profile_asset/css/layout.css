@@ -123,6 +123,12 @@ header .banner .banner-text .banner-greetings .marquee h1 {
    font-style: normal;
    font-weight: 400;
    line-height: 78%;
+   clear: both;
+   display: inline-block;
+   overflow: hidden;
+   white-space: nowrap;
+   position: relative;
+   z-index: -1;
 }
 
 header .banner .banner-text .banner-greetings h2 {
@@ -1075,8 +1081,12 @@ ul#nav li.current a {
    object-fit: cover;
 }
 
-.splide__arrow {
-   display: none !important;
+.splide__arrow--prev {
+   left: -3.2rem;
+}
+
+.splide__arrow--next {
+   right: -3.2rem;
 }
 
 .splide__pagination {
@@ -1184,6 +1194,14 @@ call-to-action .button {
    align-items: center;
    justify-content: center;
    position: relative;
+   z-index: 10;
+   overflow: hidden;
+}
+
+#gallery-content .content-wrapper .item img {
+   position: absolute;
+   z-index: 0;
+   max-height: 100%;
 }
 
 #gallery-content .content-wrapper .item:nth-child(n+1),
@@ -1405,9 +1423,10 @@ footer .footer-middle .accent-wrapper > a:hover {
 
 footer .footer-bottom {
    display: flex;
+   width: 100%;
    flex-direction: row;
    align-items: baseline;
-   justify-content: space-between;
+   justify-content: center;
    padding-top: 80px;
 }
 

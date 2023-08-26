@@ -65,72 +65,6 @@
          }).mount(
             window.splide.Extensions
          );
-
-         new Splide('#video-carousel', {
-            type: 'loop',
-            drag: 'free',
-            focus: 'center',
-            perPage: 3,
-            breakpoints: {
-                  1024: {
-                  perPage: 3,
-                  
-                  },
-                  767: {
-                  perPage: 2,
-            
-                  },
-                  640: {
-                  perPage: 1,
-            
-                  },
-            },
-            gap: '40px',
-            fixedWidth: 320,
-            fixedHeight: 320,
-            autoplay: true,
-            intersection: {
-                  inView: {
-                  autoplay: true,
-                  },
-                  outView: {
-                  autoplay: false,
-                  },
-            }
-         }).mount(
-            window.splide.Extensions
-         );
-
-         $('#video-carousel').magnificPopup({
-            delegate: 'a',
-            type: 'image',
-            gallery: {
-               enabled: true,
-               navigateByImgClick: true,
-               preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-            },
-            callbacks: {
-               elementParse: function(item) {
-                  console.log(item.el[0].className);
-                  if(item.el[0].className == 'video') {
-                     item.type = 'iframe'
-                     item.tLoading = 'Loading Video #%curr%...',
-                     // item.mainClass = 'mfp-img-mobile',
-                     item.image = {
-                        tError: 'Unable to load. <a href="%url%" target="_blank">Click Here #%curr%</a> to view in new tab.'
-                     }
-                  } else {
-                     item.type = 'image',
-                     item.tLoading = 'Loading image #%curr%...',
-                     item.mainClass = 'mfp-img-mobile',
-                     item.image = {
-                        tError: 'Unable to load. <a href="%url%" target="_blank">Click Here #%curr%</a> to view in new tab.'
-                     }
-                  }
-
-               }
-            }
-         });
       });
       new Splide('#video-carousel', {
             type: 'loop',
@@ -152,8 +86,8 @@
                   },
             },
             gap: '40px',
-            fixedWidth: 320,
-            fixedHeight: 320,
+            fixedWidth: 280,
+            fixedHeight: 280,
             autoplay: true,
             intersection: {
                   inView: {

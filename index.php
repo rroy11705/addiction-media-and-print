@@ -36,13 +36,13 @@
                   <img src="<?php echo base_url ?>profile_asset/images/arrow-right.svg" alt="arrow-right" />
                </div>
                <div class="marquee">
-                  <h1>ADDICTION</h1>
+                  <h1> ADDICTION<span style="opacity: 0.5;"> MEDIA&nbsp;</span> </h1>
                </div>
                <h2>Media & Print</h2>
             </div>
             <div class="banner-skills">
                <p class="skill-description">
-                  A multidisciplinary creative studio, based out of Kolkata, specializing in advertising and branding.
+                  A multidisciplinary creative studio, specializing in advertising and branding.
                </p>
                <div class="skills-list">
                   <ul style="opacity: 0">
@@ -139,7 +139,7 @@
 			</script>
 		</div>
       
-      <div class="about-video container">
+      <!-- <div class="about-video container">
 			<div class="video-heading">
 				<p>
 					Watch our addictive video!
@@ -154,7 +154,6 @@
 				</div>
 		
 				<video controls class="video" id="video" preload="metadata" poster="<?php echo base_url ?>profile_asset/images/about-video-thumb.svg">
-				<!-- <source src="<?php echo base_url ?>profile_asset/video/video.mp4" type="video/mp4"></source> -->
 				<source src="https://d14jj902ytd3ez.cloudfront.net/Sconto_Promo_Video.MP4" type="video/mp4"></source>
 				</video>
 		
@@ -197,7 +196,7 @@
 					<span>A multidisciplinary creative studio,</span> based out of Kolkata, specializing in advertising and branding.
 				</p>
 			</div>
-     </div>
+      </div> -->
    
       <svg style="display: none">
          <defs>
@@ -242,7 +241,7 @@
          </defs>
       </svg>
 
-      <div style="display: flex; justify-content: center; padding-bottom: 46px;">
+      <div style="display: flex; justify-content: center; padding-bottom: 46px; padding-top: 46px;">
          <svg xmlns="http://www.w3.org/2000/svg" width="95" height="93" viewBox="0 0 95 93" fill="none">
             <path d="M21.9329 11.2404C22.2965 9.15541 25.2894 9.15541 25.653 11.2404L27.0696 19.3635C27.2064 20.148 27.8207 20.7624 28.6053 20.8992L36.7283 22.3157C38.8133 22.6793 38.8133 25.6722 36.7283 26.0358L28.6053 27.4524C27.8207 27.5892 27.2064 28.2036 27.0696 28.9881L25.653 37.1111C25.2894 39.1962 22.2965 39.1962 21.9329 37.1111L20.5164 28.9881C20.3795 28.2036 19.7652 27.5892 18.9807 27.4524L10.8576 26.0358C8.7726 25.6722 8.7726 22.6793 10.8576 22.3157L18.9807 20.8992C19.7652 20.7624 20.3795 20.148 20.5164 19.3635L21.9329 11.2404Z" fill="#FEB649"/>
             <path d="M69.1321 11.2404C69.4957 9.15541 72.4886 9.15541 72.8522 11.2404L74.2688 19.3635C74.4056 20.148 75.02 20.7624 75.8045 20.8992L83.9276 22.3157C86.0126 22.6793 86.0126 25.6722 83.9276 26.0358L75.8045 27.4524C75.02 27.5892 74.4056 28.2036 74.2688 28.9881L72.8522 37.1111C72.4886 39.1962 69.4957 39.1962 69.1321 37.1111L67.7156 28.9881C67.5788 28.2036 66.9644 27.5892 66.1799 27.4524L58.0568 26.0358C55.9718 25.6722 55.9718 22.6793 58.0568 22.3157L66.1799 20.8992C66.9644 20.7624 67.5788 20.148 67.7156 19.3635L69.1321 11.2404Z" fill="#FEB649"/>
@@ -317,7 +316,10 @@
                outView: {
                autoplay: false,
                },
-            }
+            },
+            gap: 20,
+            arrows: true,
+            // arrowPath: 'M35.5 0.210938C16.215 0.210938 0.5 15.9259 0.5 35.2109C0.5 54.4959 16.215 70.2109 35.5 70.2109C54.785 70.2109 70.5 54.4959 70.5 35.2109C70.5 15.9259 54.785 0.210938 35.5 0.210938ZM45.265 37.0659L32.91 49.4209C32.385 49.9459 31.72 50.1909 31.055 50.1909C30.39 50.1909 29.725 49.9459 29.2 49.4209C28.185 48.4059 28.185 46.7259 29.2 45.7109L39.7 35.2109L29.2 24.7109C28.185 23.6959 28.185 22.0159 29.2 21.0009C30.215 19.9859 31.895 19.9859 32.91 21.0009L45.265 33.3559C46.315 34.3709 46.315 36.0509 45.265 37.0659Z'
          }).mount(
             window.splide.Extensions
          );
@@ -328,18 +330,15 @@
             focus: 'center',
             perPage: 3,
             breakpoints: {
-                  1024: {
+               1024: {
                   perPage: 3,
-                  
-                  },
-                  767: {
-                  perPage: 2,
-            
-                  },
-                  640: {
-                  perPage: 1,
-            
-                  },
+               },
+               767: {
+                  perPage: 2,         
+               },
+               640: {
+                  perPage: 1,         
+               },
             },
             gap: '40px',
             fixedWidth: 320,

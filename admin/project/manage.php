@@ -22,18 +22,20 @@ if(isset($_GET['id'])){
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-header">
-			<h5 class="card-title">Service</h5>
+			<h5 class="card-title">Project</h5>
 		</div>
 		<div class="card-body">
 			<form id="project">
 				<div class="row" class="details">
 					<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
-					<div class="col-sm-6">
+					<div class="col-sm-12">
 						<div class="form-group">
 							<label for="" class="control-label">Name</label>
 							<input id="name" name="name" cols="30" rows="1" class="form-control" value="<?php echo isset($name) ? $name : '' ?>" />
 						</div>
 					</div>
+				</div>
+				<div class="row" class="details">
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="service" class="control-label">Service</label>
@@ -44,6 +46,20 @@ if(isset($_GET['id'])){
 									while($row = $p_qry->fetch_assoc()):
 									?>
 									<option value="<?php echo $row['id'] ?>" <?php echo isset($service) ? $service == $row['id'] ? 'selected' : '' : '' ?>><?php echo $row['name'] ?></option>
+								<?php endwhile; ?>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="client" class="control-label">Client</label>
+							<select name="client" id="client" cols="30" rows="1" class="form-control">
+								<option value="" disabled selected hidden>Choose an option</option>
+								<?php 
+									$p_qry = $conn->query("SELECT `id`, `name` FROM `client`");
+									while($row = $p_qry->fetch_assoc()):
+									?>
+									<option value="<?php echo $row['id'] ?>" <?php echo isset($client) ? $client == $row['id'] ? 'selected' : '' : '' ?>><?php echo $row['name'] ?></option>
 								<?php endwhile; ?>
 							</select>
 							<!-- <input id="category" name="category"  value="<?php echo isset($category) ? $category : '' ?>" /> -->

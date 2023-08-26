@@ -14,7 +14,7 @@ if(isset($_GET['id'])){
 }
 ?>
 <style>
-	#cimg{
+	#cimg, #video{
 		max-width: 50%;
 		object-fit: contain;
 	}
@@ -22,22 +22,38 @@ if(isset($_GET['id'])){
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-header">
-			<h5 class="card-title">Service</h5>
+			<h5 class="card-title">Recent Work</h5>
 		</div>
 		<div class="card-body">
 			<form id="recent_work">
 				<div class="row" class="details">
 					<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
-					<div class="col-sm-8">
+					<div class="col-sm-12">
 						<div class="form-group">
 							<label for="" class="control-label">Name</label>
 							<input id="name" name="name" cols="30" rows="1" class="form-control" value="<?php echo isset($name) ? $name : '' ?>" />
 						</div>
 					</div>
-					<div class="col-sm-4">
+				</div>
+				<div class="row" class="details">
+					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="date" class="control-label">Date (dd/mm/yyyy)</label>
 							<input id="date" name="date" cols="30" rows="1" class="form-control" value="<?php echo isset($date) ? $date : '' ?>" />
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="client" class="control-label">Client</label>
+							<select name="client" id="client" cols="30" rows="1" class="form-control">
+								<option value="" disabled selected hidden>Choose an option</option>
+								<?php 
+									$p_qry = $conn->query("SELECT `id`, `name` FROM `client`");
+									while($row = $p_qry->fetch_assoc()):
+									?>
+									<option value="<?php echo $row['id'] ?>" <?php echo isset($client) ? $client == $row['id'] ? 'selected' : '' : '' ?>><?php echo $row['name'] ?></option>
+								<?php endwhile; ?>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -49,29 +65,34 @@ if(isset($_GET['id'])){
 						</div>
 					</div>
 				</div>
+				<div style="color: #ACACAC; padding-bottom: 1rem;">
+					*Note: If the work is a video, it is suggested to add a thumbnail. If the work is an image, only add an image.
+				</div>
 				<div class="row" class="details">
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="customFile" class="control-label">Video</label>
 							<div class="custom-file">
-								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="media" onchange="displayImg(this,$(this))">
+								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="media" onchange="displayImg(this,$(this),'#vimg')">
 								<label class="custom-file-label" for="customFile">Choose file</label>
 							</div>
 						</div>
-						<!-- <div class="form-group d-flex justify-content-center">
-							<img src="<?php echo isset($attachment) ? validate_image($attachment) : '' ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
-						</div> -->
+						<div class="form-group d-flex justify-content-center">
+							<video controls class="video" id="video" preload="metadata">
+								<source id="vimg" src="<?php echo isset($attachment) ? validate_image($attachment) : '' ?>" type="video/mp4"></source>
+							</video>
+						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="customFile" class="control-label">Thumbnail / Image</label>
 							<div class="custom-file">
-								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="thumbnail" onchange="displayImg(this,$(this))">
+								<input type="file" class="custom-file-input rounded-circle" id="customFile" name="thumbnail" onchange="displayImg(this,$(this),'#cimg')">
 								<label class="custom-file-label" for="customFile">Choose file</label>
 							</div>
 						</div>
 						<div class="form-group d-flex justify-content-center">
-							<img src="<?php echo isset($attachment) ? validate_image($attachment) : '' ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
+							<img src="<?php echo isset($thumbnail) ? validate_image($thumbnail) : '' ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
 						</div>
 					</div>
 				</div>
@@ -108,7 +129,7 @@ if(isset($_GET['id'])){
 			};
 		});
 	};
-	function displayImg(input,_this) {
+	function displayImg(input,_this,imgContainerId) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
 	        reader.onload = function (e) {
@@ -117,10 +138,10 @@ if(isset($_GET['id'])){
 					const thumbnail = generateVideoThumbnail(input.files[0]);
 					thumbnail.then(function (value) {
 						console.log(value)
-						$('#cimg').attr('src', value);
+						$(imgContainerId).attr('src', value);
 					})
 				} else {
-					$('#cimg').attr('src', e.target.result);
+					$(imgContainerId).attr('src', e.target.result);
 				}
 	        }
 

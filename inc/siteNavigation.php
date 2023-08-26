@@ -24,7 +24,7 @@
         <li><a href="index.php#our-services-mobile">our services</a></li>
         <li><a href="works.php#recent-works">recent works</a></li>
         <li><a href="works.php#awards">awards</a></li>
-        <li style="padding-top: 20px"><a href="gallery.php">portfolio</a></li>
+        <li style="padding-top: 20px"><a href="gallery.php">Gallery</a></li>
         <li><a href="works.php#experience">client</a></li>
         <div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
         <div class="contact">
@@ -70,7 +70,7 @@
 
     <ul id="nav" class="nav">
         <li><a class="<?php if(basename($_SERVER['PHP_SELF']) == "index.php"){ echo "smoothscroll"; } else echo ""; ?>" href="index.php#our-services">SERVICES</a></li>•
-        <li><a href="gallery.php">PORTFOLIO</a></li>•
+        <li><a href="gallery.php">GALLERY</a></li>•
         <li><a class="<?php if(basename($_SERVER['PHP_SELF']) == "index.php"){ echo "smoothscroll"; } else echo ""; ?>" href="index.php#experience">CLIENTS</a></li>
     </ul> 
     <!-- end #nav -->

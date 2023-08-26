@@ -115,7 +115,7 @@ Class Content extends DBConnection {
 		extract($_POST);
 		$data = "";
 		foreach($_POST as $k => $v){
-			if(!in_array($k,array('id','name', 'service', 'summary', 'attachment', 'date'))){
+			if(!in_array($k,array('id','name', 'service', 'client', 'summary', 'attachment', 'date'))){
 				if(!empty($data)) $data .= ", ";
 				$data .= "`$k` = '$v'";
 			}
@@ -124,6 +124,7 @@ Class Content extends DBConnection {
 		if(!empty($data)) $data .= ", ";
 		$data .= "`name` = '".addslashes($name)."', ";
 		$data .= "`service` = '".addslashes($service)."', ";
+		$data .= "`client` = '".addslashes($client)."', ";
 		$data .= "`summary` = '".addslashes(htmlentities($summary))."', ";
 		$data .= "`date` = '".addslashes($date)."'";
 
@@ -227,7 +228,7 @@ Class Content extends DBConnection {
 		extract($_POST);
 		$data = "";
 		foreach($_POST as $k => $v){
-			if(!in_array($k,array('id','name', 'description', 'attachment', 'date'))){
+			if(!in_array($k,array('id','name', 'client', 'description', 'attachment', 'date'))){
 				if(!empty($data)) $data .= ", ";
 				$data .= "`$k` = '$v'";
 			}
@@ -235,6 +236,7 @@ Class Content extends DBConnection {
 
 		if(!empty($data)) $data .= ", ";
 		$data .= "`name` = '".addslashes($name)."', ";
+		$data .= "`client` = '".addslashes($client)."', ";
 		$data .= "`description` = '".addslashes(htmlentities($description))."', ";
 		$data .= "`date` = '".addslashes($date)."'";
 

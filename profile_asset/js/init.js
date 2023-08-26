@@ -67,10 +67,10 @@ jQuery(document).ready(function($) {
    $('.marquee').marquee({
       allowCss3Support : true,
       css3easing: 'linear',
-      duration: 80000,
+      duration: 20000,
       gap: 0,
       delayBeforeStart: 30,
-      direction: 'right',
+      direction: 'left',
       duplicated: true,
       startVisible: true
    });
