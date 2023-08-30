@@ -482,7 +482,7 @@
    }
 
    #experience_modal .experience-wrapper .experience-item {
-      width: calc((100% / 2))
+      width: calc((100% / 2) - 4px)
    }
 
    #experience .experience-wrapper .experience-item {
@@ -578,6 +578,26 @@
       margin-left: 0;
    }
 
+   .awards-wrapper {
+      row-gap: 40px;
+      column-gap: 20px;
+   }
+
+   .awards-wrapper .award {
+      width: calc(50% - 11px);
+      font-size: 14px;
+      padding: 1rem;
+   }
+
+   .awards-wrapper .award:nth-child(1),
+   .awards-wrapper .award:nth-child(4) {
+      background-color: #feb649;
+   }
+   
+   .awards-wrapper .award:nth-child(2),
+   .awards-wrapper .award:nth-child(3) {
+      background-color: #fe9549;
+   }
 
    /* footer
    ------------------------------------------------------------------------ */

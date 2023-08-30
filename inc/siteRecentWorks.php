@@ -26,14 +26,23 @@
             </ul>
         </div>
     </div>
-    <div id="awards" class="recent-works-headers" style="padding-top: 60px; margin-top: -60px;">
+    <div id="awards" class="recent-works-headers" style="padding-top: 120px; margin-top: -60px;">
         <div class="recent-works-header">
             <h2>Awards</h2>
         </div>
     </div>
-    <div class="awards-wrapper" style="display: flex; flex-direction: row; gap: 20px; padding: 24px 0;">
-        <div style="width: 100px;height: 100px;border-radius:50%;background:#808080"></div>
-        <div style="width: 100px;height: 100px;border-radius:50%;background:#808080"></div>
-        <div style="width: 100px;height: 100px;border-radius:50%;background:#808080"></div>
+    <div class="awards-wrapper">
+        <div class="award">
+            Abby Awards for Excellence in Advertisement
+        </div>
+        <div class="award">
+            Srijan Samman
+        </div>
+        <div class="award">
+            Calcutta Advertising Club Award
+        </div>
+        <div class="award">
+            Promax Award
+        </div>
     </div>
 </section>

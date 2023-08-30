@@ -153,42 +153,47 @@
     <section id="gallery-content">
         <div class="content-wrapper zoom-gallery">
             <?php 
-                $client_query = 
-                    "SELECT
-                        s.id AS service_id,
-                        s.name As service_name,
-                        c.id AS client_id,
-                        c.name AS client_name,
-                        p.attachment AS attachment
-                    FROM
-                        (SELECT
-                            p.client as client_id,
-                            p.service as service_id,
-                            p.id,
-                            p.attachment,
-                            ROW_NUMBER() OVER(PARTITION BY p.client ORDER BY p.id) AS row_num
-                        FROM
-                            project p
-                        ) As p
-                    LEFT JOIN client as c 
-                    ON c.id = p.client_id OR c.id = NULL AND p.row_num = 1
-                    INNER JOIN service s ON p.service_id = s.id AND p.row_num = 1";
-                $client_query_end = "ORDER BY case when p.client_id = 0 then 1 else 0 end, client_name ASC";
-
                 if(isset($_GET['id']) && $_GET['id'] > 0)
-                    $qry = $conn->query($client_query . " WHERE service_id = '{$_GET['id']}' " . $client_query_end);
+                    $qry = $conn->query("SELECT * from project WHERE `service` = '{$_GET['id']}';");
                 else
-                    $qry = $conn->query($client_query . " " . $client_query_end);
+                    $qry = $conn->query("SELECT * from project;");
         
                 while($row = $qry->fetch_assoc()):
             ?>
-                <a class="item" href="gallery-details.php?<?php echo $_GET['id'] ? 'service=' . $_GET['id'] : 'service=0' ?>&<?php echo $row['client_id'] ? 'client=' . $row['client_id'] : 'client=0' ?>">
-                    <img src="<?php echo $row['attachment'] ? $row['attachment'] : '#' ?>" alt="<?php echo $row['client_name'] ? $row['client_name'] : '#' ?>" />
-                    <div class="overlay"><?php echo $row['client_name'] ? $row['client_name'] : 'Others' ?></div>
+                <a class="item" href="<?php echo $row['attachment'] ? $row['attachment'] : '#' ?>">
+                    <img src="<?php echo $row['attachment'] ? $row['attachment'] : '#' ?>" alt="<?php echo $row['name'] ? $row['name'] : '#' ?>" />
                 </a>
             <?php endwhile; ?>
         </div>
     </section>
     <?php require_once('inc/footer.php') ?>
+    <script>
+        $(document).ready(function() {
+            $('.zoom-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                mainClass: 'mfp-with-zoom mfp-img-mobile',
+                image: {
+                    verticalFit: true,
+                    titleSrc: function(item) {
+                        return item.el.attr('title');
+                    }
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // don't foget to change the duration also in CSS
+                    opener: function(element) {
+                        return element.find('img');
+                    }
+                }
+
+            });
+        });
+    </script>
 </body>
 </html>

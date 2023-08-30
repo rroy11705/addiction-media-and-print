@@ -944,7 +944,10 @@ ul#nav li.current a {
 }
 
 #experience_modal .experience-wrapper .experience-item {
-   width: calc((100% / 8));
+   width: calc((100% / 8) - 5px);
+   aspect-ratio: 1;
+   height: 100%;
+   background: #f3f3f3;
 }
 
 #experience_modal {
@@ -1109,6 +1112,41 @@ ul#nav li.current a {
    background-color: #FEB649;
    width: 18px;
    border-radius: 10px;
+}
+
+.awards-wrapper {
+   display: flex; 
+   flex-direction: row; 
+   flex-wrap: wrap;
+   gap: 80px; 
+   padding: 24px 0;
+}
+
+.awards-wrapper .award {
+   width: calc(25% - 60px);
+   color: #000000;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 600;
+   font-size: 20px;
+   line-height: 117%;
+   letter-spacing: -0.02em;
+   margin: 0;
+   transition: ease-out 500ms;
+   padding: 3rem;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   aspect-ratio: 1;
+   border-radius: 50%;
+}
+
+.awards-wrapper .award:nth-child(2n + 1) {
+   background-color: #feb649;
+}
+
+.awards-wrapper .award:nth-child(2n) {
+   background-color: #fe9549;
 }
 
 /* ------------------------------------------------------------------ */
